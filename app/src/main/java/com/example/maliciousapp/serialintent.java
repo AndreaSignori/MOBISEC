@@ -39,7 +39,7 @@ public class serialintent extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        FlagContainer fc = data != null ? data.getSerializableExtra("flag", FlagContainer.class) : null;
+        FlagContainer fc = data.getSerializableExtra("flag", FlagContainer.class) ;
     }
 
 
