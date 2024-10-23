@@ -24,7 +24,7 @@ import java.util.Collections;
 public class MainActivity extends AppCompatActivity {
 
     // Sample data for the dropdown
-    private String[] items = {"filehasher", "justask"};
+    private String[] items = {"filehasher", "justask","serialintent"};
     private int selection ;
 
     @Override
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1: intent = new Intent(MainActivity.this,justask.class);
                         break;
+                    case 2: intent = new Intent(MainActivity.this,serialintent.class);
                     default:
                         break;
                 }

@@ -21,7 +21,6 @@ public class justask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_justask);
-
         ((Button) findViewById(R.id.btn_hackit)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,7 +28,6 @@ public class justask extends AppCompatActivity {
                 startActivityForResult(IntentOrchestrator(), 1);
             }
         });
-
     }
 
     @Override
