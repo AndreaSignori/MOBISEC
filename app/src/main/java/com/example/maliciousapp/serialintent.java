@@ -1,26 +1,14 @@
 package com.example.maliciousapp;
 
-import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.io.Serializable;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 
 public class serialintent extends AppCompatActivity {
 
@@ -41,7 +29,5 @@ public class serialintent extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         FlagContainer fc = data.getSerializableExtra("flag", FlagContainer.class) ;
     }
-
-
 }
 
