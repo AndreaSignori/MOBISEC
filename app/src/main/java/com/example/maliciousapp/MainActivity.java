@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
+        // Always set the last element first, so i don't have to set it every time
+        spinner.setSelection(items.length - 1);
+
+
         // Set the selection listener for the dropdown
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
