@@ -1,14 +1,13 @@
-package com.example.maliciousapp;
-
+package com.example.victimapp;
 import android.util.Base64;
-
 import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-class FlagContainer implements Serializable {
+public class FlagContainer implements Serializable {
     private String[] parts;
     private ArrayList<Integer> perm;
+    private static final long serialVersionUID = 1777556209636587368L;
 
     public FlagContainer(String[] parts, ArrayList<Integer> perm) {
         this.parts = parts;
