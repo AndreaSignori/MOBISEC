@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     // Sample data for the dropdown
-    private String[] items = {"filehasher", "justask","serialintent","justlisten"};
+    private String[] items = {"filehasher", "justask","serialintent","justlisten","jokeprovider"};
     private int selection ;
 
     @Override
@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     case 2: intent = new Intent(MainActivity.this,serialintent.class);
                         break;
                     case 3: intent = new Intent(MainActivity.this,justlisten.class);
+                        break;
+                    case 4: intent = new Intent(MainActivity.this,jokeprovider.class);
                         break;
                     default:
                         break;
